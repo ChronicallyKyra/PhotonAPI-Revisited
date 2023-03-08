@@ -169,7 +169,11 @@ namespace Photon.Realtime
                 this.Listener.DebugReturn(DebugLevel.INFO, "OpLeaveLobby()");
             }
 
-            return this.SendOperation(OperationCode.LeaveLobby, null, SendOptions.SendReliable);
+            // return this.SendOperation(OperationCode.LeaveLobby, null, SendOptions.SendReliable);  Ambiguous call
+
+            Dictionary<byte, object> opParameters = new Dictionary<byte, object>();
+
+            return this.SendOperation(OperationCode.LeaveLobby, opParameters, SendOptions.SendReliable);
         }
 
 
